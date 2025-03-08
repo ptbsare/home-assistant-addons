@@ -90,6 +90,10 @@ RUN pip install --break-system-packages --no-cache-dir sherpa-onnx numpy
 #install 
 RUN pip install --break-system-packages --no-cache-dir git+https://github.com/rhasspy/wyoming.git
 
+#EXPOSE PORTS
+EXPOSE 10400 10500 
+RUN pip install --break-system-packages --no-cache-dir uvicorn fastapi pydantic
+
 # Copy the files
 COPY run.py /app/
 

@@ -21,7 +21,6 @@ def get_models() -> ModelContainer:
 
 app = FastAPI()
 _LOGGER = logging.getLogger("sherpa_onnx_api")
-_LOGGER.setLevel(logging.DEBUG)  # Ensure the logger uses DEBUG level
 
 # Middleware to log all requests
 @app.middleware("http")

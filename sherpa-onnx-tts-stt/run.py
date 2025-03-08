@@ -430,13 +430,13 @@ async def main() -> None:
                 _LOGGER.exception("Failed to initialize TTS model:")
                 raise
 
-        if 'kokoro-multi-lang-v1_0' == cli_args.tts_model:
+        if 'kokoro-int8-multi-lang-v1_1' == cli_args.tts_model:
             try:
                 tts_model = sherpa_onnx.OfflineTts(
                 sherpa_onnx.OfflineTtsConfig(
                 model=sherpa_onnx.OfflineTtsModelConfig(
                 kokoro=sherpa_onnx.OfflineTtsKokoroModelConfig(
-                model=os.path.join(tts_model_dir, cli_args.tts_model, "model.onnx"),
+                model=os.path.join(tts_model_dir, cli_args.tts_model, "model.int8.onnx"),
                 voices=os.path.join(tts_model_dir, cli_args.tts_model, "voices.bin"),
                 lexicon=f"{tts_model_dir}/{cli_args.tts_model}/lexicon-zh.txt,{tts_model_dir}/{cli_args.tts_model}/lexicon-us-en.txt",
                 tokens=os.path.join(tts_model_dir, cli_args.tts_model, "tokens.txt"),

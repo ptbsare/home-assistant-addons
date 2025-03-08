@@ -118,7 +118,8 @@ RUN apt-get update \
 		python3-pip \
 		python3 \
         libasound2 \
-		&& rm -rf /var/lib/apt/lists/*
+  ffmpeg \
+  && rm -rf /var/lib/apt/lists/*
 #RUN apk update && apk add --no-cache ffmpeg tar curl bzip2 git cython3
 
 WORKDIR /

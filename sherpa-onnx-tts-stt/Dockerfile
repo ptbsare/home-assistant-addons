@@ -77,7 +77,7 @@ HEALTHCHECK --start-period=3m --interval=30m \
 # Copy the add-on code.  Crucially *before* requirements.txt, so Docker layer caching works!
 COPY . /app
 WORKDIR /app
-
+RUN ls -la /app
 # Install Python dependencies
 # Install sherpa-onnx.  Make sure ARM architecture is handled correctly.
 #RUN pip3 install --no-cache-dir sherpa-onnx
@@ -90,8 +90,8 @@ RUN pip install --break-system-packages --no-cache-dir git+https://github.com/rh
 EXPOSE 10400 10500
 RUN pip install --break-system-packages --no-cache-dir uvicorn fastapi pydantic pydub
 
-# Copy the files
-COPY run.py /app/
+# Copy the files was redundant
+
 
 
 

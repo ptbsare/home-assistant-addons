@@ -30,7 +30,7 @@ if [ "$(bashio::config 'custom_tts_model_eval')" != 'null' ]; then
 fi
 
 echo "$LANGUAGE" "$SPEED"  "$STT_MODEL"  "$STT_USE_INT8_ONNX_MODEL"  "$STT_THREAD_NUM"  "$TTS_MODEL"  "$TTS_THREAD_NUM"  "$TTS_SPEAKER_SID"  "$DEBUG" "$CUSTOM_STT_MODEL" "$CUSTOM_STT_MODEL_EVAL" "$CUSTOM_TTS_MODEL" "$CUSTOM_TTS_MODEL_EVAL" 
-exec python3 run.py \
+exec python3 /app/run.py \
     --language "$LANGUAGE" \
     --speed "$SPEED" \
     --stt_model "$STT_MODEL" \

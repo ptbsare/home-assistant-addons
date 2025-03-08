@@ -30,3 +30,8 @@
 
 - Bump Kokoro-TTS to v1.1
 - 升级内置Kokoro-TTS到v1.1
+
+## 0.3.0
+
+- Experimental Support for Openai-format TTS/STT api  IP:10500/v1/audio/speech IP:10500/v1/audio/transcriptions
+- 添加Openai兼容格式 TTS/STT 实验性支持，实现了两个接口  IP:10500/v1/audio/speech IP:10500/v1/audio/transcriptions

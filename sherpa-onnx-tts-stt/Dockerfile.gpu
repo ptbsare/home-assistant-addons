@@ -181,5 +181,8 @@ RUN pip install sherpa-onnx==1.10.43+cuda -f https://k2-fsa.github.io/sherpa/onn
 #install 
 RUN pip install --no-cache-dir git+https://github.com/rhasspy/wyoming.git
 #RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
-# Copy the files
-COPY run.py /app/
+
+
+#EXPOSE PORTS
+EXPOSE 10400 10500
+RUN pip install --break-system-packages --no-cache-dir uvicorn fastapi pydantic pydub python-multipart

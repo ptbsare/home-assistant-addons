@@ -108,3 +108,6 @@ max_num_sentences=1,
 ```
 Goto the [Sherpa Onnx repo TTS Python examples](https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/offline-tts.py) for more information.
 
+### Openai-format TTS/STT api support
+Experimental Support for Openai-format TTS/STT api  IP:10500/v1/audio/speech IP:10500/v1/audio/transcriptions
+添加Openai TTS/STT 实验性支持，实现了两个接口  IP:10500/v1/audio/speech IP:10500/v1/audio/transcriptions

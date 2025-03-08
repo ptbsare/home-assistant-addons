@@ -54,7 +54,7 @@ RUN curl -L https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/m
     rm matcha-icefall-zh-baker.tar.bz2 
 
 WORKDIR /tts-models
-RUN curl -L https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-int8-multi-lang-v1_1.tar.bz2 -o kokoro-multi-lang-v1_0.tar.bz2 && \
+RUN curl -L https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-int8-multi-lang-v1_1.tar.bz2 -o kokoro-int8-multi-lang-v1_1.tar.bz2 && \
     tar -xf kokoro-int8-multi-lang-v1_1.tar.bz2 && \
     rm kokoro-int8-multi-lang-v1_1.tar.bz2 
 

@@ -24,3 +24,9 @@
 - 修复addon的custom_models参数
 - 内置stt模型sherpa-onnx-paraformer-zh-small-2024-03-09
 - 内置tts模型vits-melo-tts-zh_en
+
+
+## 0.2.10
+
+- Bump Kokoro-TTS to v1.1
+- 升级内置Kokoro-TTS到v1.1

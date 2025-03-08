@@ -8,6 +8,9 @@ Offline Sherpa-onnx TTS/STT with wyoming support, supports kokoro-TTS/matcha-TTS
   
 离线Sherpa-onnx TTS/STT的wyoming集成，支持kokoro-TTS/matcha-TTS/paraformer-STT，需要1.5G内存。
 
+Also supports Openai-format TTS/STT api  IP:10500/v1/audio/speech IP:10500/v1/audio/transcriptions
+
+同时支持Openai TTS/STT 格式两个接口  IP:10500/v1/audio/speech IP:10500/v1/audio/transcriptions
 (It just works. PR is welcomed to improve this.)
 
 ## Supported STT Models:

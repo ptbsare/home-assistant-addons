@@ -14,22 +14,18 @@ ENV CUSTOM_STT_MODEL_EVAL 'null'
 ENV CUSTOM_TTS_MODEL 'null'
 ENV CUSTOM_TTS_MODEL_EVAL 'null'
 # Install Python dependencies
-#RUN apk add --no-cache python3 py3-pip cython3 git curl  \
-#  && python3 -m pip install --upgrade pip setuptools wheel
-#RUN apk update && apk add --no-cache python3 py3-pip cython3 git curl  \
-#RUN apk update && apk add --no-cache git curl py3-pip cython cmake make py3-setuptools py3-wheel g++ gcc  
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         netcat-traditional \
         tar \
         curl \
         bzip2 \
-		git \
-		cython3 \
-		python3-pip \
-		python3 \
-		&& rm -rf /var/lib/apt/lists/*
-#RUN apk update && apk add --no-cache ffmpeg tar curl bzip2 git cython3
+        git \
+        cython3 \
+        python3-pip \
+        python3 \
+        ffmpeg \
+  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
 COPY rootfs/etc /etc
@@ -91,8 +87,8 @@ RUN pip install --break-system-packages --no-cache-dir sherpa-onnx numpy
 RUN pip install --break-system-packages --no-cache-dir git+https://github.com/rhasspy/wyoming.git
 
 #EXPOSE PORTS
-EXPOSE 10400 10500 
-RUN pip install --break-system-packages --no-cache-dir uvicorn fastapi pydantic
+EXPOSE 10400 10500
+RUN pip install --break-system-packages --no-cache-dir uvicorn fastapi pydantic pydub
 
 # Copy the files
 COPY run.py /app/

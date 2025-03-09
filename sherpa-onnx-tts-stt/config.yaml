@@ -45,5 +45,6 @@ schema:
 
 ports:
   10400/tcp: 10400
+  10500/tcp: 10500
 homeassistant: 2023.8.0.dev20230728
 image: "ghcr.io/ptbsare/home-assistant-addons/{arch}-addon-sherpa-onnx-tts-stt"

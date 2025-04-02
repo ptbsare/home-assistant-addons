@@ -99,7 +99,10 @@ DOCKER ENV CUSTOM_STT_MODEL
 For advanced users only. If you want to use stt models other than builtin stt models, please specify `custom_stt_model` and `custom_stt_model_eval`
 
 `custom_stt_model` is name of the model to use. eg. sherpa-onnx-zipformer-cantonese-2024-03-13
-See the [models](#models) section for more details.
+
+Container will download the model from github and extract the model files to /stt-models/$CUSTOM_STT_MODEL/ folder.
+
+See the [models](#models) section for list of models from github.
 
 ### Option: `custom_stt_model_eval`
 
@@ -119,7 +122,10 @@ DOCKER ENV CUSTOM_TTS_MODEL
 For advanced users only. If you want to use tts models other than builtin tts models, please specify `custom_tts_model` and `custom_tts_model_eval`
 
 `custom_tts_model` is name of the model to use. eg. vits-cantonese-hf-xiaomaiiwn
-See the [models](#models) section for more details.
+
+Container will download the model from github and extract the model files to /tts-models/$CUSTOM_TTS_MODEL/ folder.
+
+See the [models](#models) section for list of models from github.
 
 ### Option: `custom_tts_model_eval`
 

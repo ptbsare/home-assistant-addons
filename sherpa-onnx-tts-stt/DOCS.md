@@ -31,70 +31,103 @@ TTS Models are automatically downloaded from [Github](https://github.com/k2-fsa/
 
 ### Option: `language`
 
+DOCKER ENV LANGUAGE
+
 Default language to use. eg. en
 
 ### Option: `speed`
+
+DOCKER ENV SPEED
 
 TTS Speech Speed. eg. 1.0
 
 ### Option: `stt_model`
 
-Name of the model to use. eg. 
+DOCKER ENV STT_MODEL
+
+Name of the builtin model to use. eg. 
 ```
 sherpa-onnx-paraformer-zh-2023-03-28
 sherpa-onnx-paraformer-zh-small-2024-03-09
-custom_stt_model
 ```
 See the [models](#models) section for more details.
 
 ### Option: `stt_use_int8_onnx_model`
 
+DOCKER ENV STT_USE_INT8_ONNX_MODEL
+
 Enable int8 model to reduce memery usage. eg. True
 
 ### Option: `stt_thread_num`
+
+DOCKER ENV STT_THREAD_NUM
 
 Number of Threads for TTS. eg. 3
     
 ### Option: `tts_model`
 
-Name of the model to use. eg. 
+DOCKER ENV TTS_MODEL
+
+Name of the builtin model to use. eg.
 ```
 matcha-icefall-zh-baker
 vits-melo-tts-zh_en
 kokoro-int8-multi-lang-v1_1
-custom_tts_model
 ```
 ### Option: `tts_thread_num`
+
+DOCKER ENV TTS_THREAD_NUM
 
 Number of Threads for TTS. eg. 3
 
 ### Option: `tts_speaker_sid`
 
+DOCKER ENV TTS_SPEAKER_SID
+
 TTS Speaker ID. eg. 0
 
 ### Option: `debug`
 
+DOCKER ENV DEBUG
+
 Enable debug logging. eg. False
 
 ### Option: `custom_stt_model`
-For advanced users only.
-Name of the model to use. eg. sherpa-onnx-zipformer-cantonese-2024-03-13
+
+DOCKER ENV CUSTOM_STT_MODEL
+
+For advanced users only. If you want to use stt models other than builtin stt models, please specify `custom_stt_model` and `custom_stt_model_eval`
+
+`custom_stt_model` is name of the model to use. eg. sherpa-onnx-zipformer-cantonese-2024-03-13
 See the [models](#models) section for more details.
 
 ### Option: `custom_stt_model_eval`
-For advanced users only.
-python eval expression for building the model at runtime, this string is passed to the python `eval()` function. eg.
+
+DOCKER ENV CUSTOM_TTS_MODEL_EVAL
+
+For advanced users only. If you want to use stt models other than builtin stt models, please specify `custom_stt_model` and `custom_stt_model_eval`
+
+`custom_stt_model_eval` is python eval expression for building the model at runtime, this string is passed to the python `eval()` function. eg.
+
 Similar to `custom_tts_model_eval` below.
 Goto the [Sherpa Onnx repo STT Python examples](https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/offline-decode-files.py) for more information.
 
 ### Option: `custom_tts_model`
-For advanced users only.
-Name of the model to use. eg. vits-cantonese-hf-xiaomaiiwn
+
+DOCKER ENV CUSTOM_TTS_MODEL
+
+For advanced users only. If you want to use tts models other than builtin tts models, please specify `custom_tts_model` and `custom_tts_model_eval`
+
+`custom_tts_model` is name of the model to use. eg. vits-cantonese-hf-xiaomaiiwn
 See the [models](#models) section for more details.
 
 ### Option: `custom_tts_model_eval`
-For advanced users only.
-python eval expression for building the model at runtime, this string is passed to the python `eval()` function. eg. 
+
+DOCKER ENV CUSTOM_TTS_MODEL_EVAL
+
+For advanced users only. If you want to use tts models other than builtin tts models, please specify `custom_tts_model` and `custom_tts_model_eval`
+
+`custom_tts_model_eval` is python eval expression for building the model at runtime, this string is passed to the python `eval()` function. eg. 
 ```python
 sherpa_onnx.OfflineTts(
 sherpa_onnx.OfflineTtsConfig(
@@ -118,6 +151,6 @@ max_num_sentences=1,
 ```
 Goto the [Sherpa Onnx repo TTS Python examples](https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/offline-tts.py) for more information.
 
-### Openai-format TTS/STT api support
+## Openai-format TTS/STT api support
 Experimental Support for Openai-format TTS/STT api  IP:10500/v1/audio/speech IP:10500/v1/audio/transcriptions
 添加Openai TTS/STT 实验性支持，实现了两个接口  IP:10500/v1/audio/speech IP:10500/v1/audio/transcriptions

@@ -23,9 +23,9 @@ for more information.
 
 ## Models
 
-STT Models are automatically downloaded from [Github](https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models) and put into `/stt-models`.
+STT Models are automatically downloaded from [STT Model list on Github](https://github.com/k2-fsa/sherpa-onnx/releases/tag/asr-models) and put into `/stt-models`.
 
-TTS Models are automatically downloaded from [Github](https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models) and put into `/tts-models`.
+TTS Models are automatically downloaded from [TTS Model list on Github](https://github.com/k2-fsa/sherpa-onnx/releases/tag/tts-models) and put into `/tts-models`.
 
 ## Configuration
 

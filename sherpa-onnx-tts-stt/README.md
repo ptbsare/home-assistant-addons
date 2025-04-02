@@ -22,7 +22,7 @@ Also supports Openai-format TTS/STT api  IP:10500/v1/audio/speech IP:10500/v1/au
 * vits-melo-tts-zh_en (Chinese and English, medium on Intel(R) Celeron(R) CPU N3350 @ 1.10GHz)
 * kokoro-multi-lang-v1_0 (Multiple-Languages, a little bit slow on Intel(R) Celeron(R) CPU N3350 @ 1.10GHz)
 ```
-For kokoro-multi-lang-v1_0
+For kokoro-multi-lang-v1_1
 There are 53 speakers in the model, with speaker ID 0 -- 52.
 
 The mapping between speaker ID (AKA sid ) and speaker name is given below:
@@ -42,7 +42,7 @@ isabella, 23->bf_lily, 24->bm_daniel, 25->bm_fable, 26->bm_george, 27->bm_lewis,
 ```
 
 ## Custom Models are supportted.
-See DOCS.md for details.
+See [DOCS.md](https://github.com/ptbsare/home-assistant-addons/blob/main/sherpa-onnx-tts-stt/DOCS.md) for details.
 
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg

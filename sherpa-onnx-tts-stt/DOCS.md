@@ -39,7 +39,12 @@ TTS Speech Speed. eg. 1.0
 
 ### Option: `stt_model`
 
-Name of the model to use. eg. sherpa-onnx-paraformer-zh-2023-03-28
+Name of the model to use. eg. 
+```
+sherpa-onnx-paraformer-zh-2023-03-28
+sherpa-onnx-paraformer-zh-small-2024-03-09
+custom_stt_model
+```
 See the [models](#models) section for more details.
 
 ### Option: `stt_use_int8_onnx_model`
@@ -52,8 +57,13 @@ Number of Threads for TTS. eg. 3
     
 ### Option: `tts_model`
 
-Name of the model to use. eg. matcha-icefall-zh-baker
-
+Name of the model to use. eg. 
+```
+matcha-icefall-zh-baker
+vits-melo-tts-zh_en
+kokoro-int8-multi-lang-v1_1
+custom_tts_model
+```
 ### Option: `tts_thread_num`
 
 Number of Threads for TTS. eg. 3
@@ -90,18 +100,18 @@ sherpa_onnx.OfflineTts(
 sherpa_onnx.OfflineTtsConfig(
 model=sherpa_onnx.OfflineTtsModelConfig(
 kokoro=sherpa_onnx.OfflineTtsKokoroModelConfig(
-model="/tts-models/kokoro-multi-lang-v1_0/model.onnx",
-voices="/tts-models/kokoro-multi-lang-v1_0/voices.bin",
-lexicon="/tts-models/kokoro-multi-lang-v1_0/lexicon-zh.txt,/tts-models/kokoro-multi-lang-v1_0/lexicon-us-en.txt",
-tokens="/tts-models/kokoro-multi-lang-v1_0/tokens.txt",
-data_dir="/tts-models/kokoro-multi-lang-v1_0/espeak-ng-data",
-dict_dir="/tts-models/kokoro-multi-lang-v1_0/dict",
+model="/tts-models/kokoro-multi-lang-v1_1/model.onnx",
+voices="/tts-models/kokoro-multi-lang-v1_1/voices.bin",
+lexicon="/tts-models/kokoro-multi-lang-v1_1/lexicon-zh.txt,/tts-models/kokoro-multi-lang-v1_1/lexicon-us-en.txt",
+tokens="/tts-models/kokoro-multi-lang-v1_1/tokens.txt",
+data_dir="/tts-models/kokoro-multi-lang-v1_1/espeak-ng-data",
+dict_dir="/tts-models/kokoro-multi-lang-v1_1/dict",
 ),
 provider="cpu",
 num_threads=3,
 debug=True,
 ),
-rule_fsts="/tts-models/kokoro-multi-lang-v1_0/phone-zh.fst,/tts-models/kokoro-multi-lang-v1_0/date-zh.fst,/tts-models/kokoro-multi-lang-v1_0/number-zh.fst",                 
+rule_fsts="/tts-models/kokoro-multi-lang-v1_1/phone-zh.fst,/tts-models/kokoro-multi-lang-v1_1/date-zh.fst,/tts-models/kokoro-multi-lang-v1_1/number-zh.fst",                 
 max_num_sentences=1,
 )
 )

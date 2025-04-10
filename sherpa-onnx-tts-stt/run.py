@@ -112,18 +112,25 @@ class SherpaOnnxEventHandler(AsyncEventHandler):
         elif AudioStop.is_type(event.type):
             audio_stop = AudioStop.from_event(event)
             _LOGGER.debug(f"Recevie audio stop:{audio_stop}")
+            result = None
             if self.audio:
                 audio_array = (
                     np.frombuffer(self.audio, dtype=np.int16).astype(np.float32) / 32768.0
                 )
                 self.stream.accept_waveform(self.audio_recv_rate, audio_array)
-                self.stt_model.decode_stream(self.stream)
-                result = self.stream.result
-                _LOGGER.debug(f"{result}")
-
+                try:
+                    self.stt_model.decode_stream(self.stream)
+                    result = self.stream.result
+                    _LOGGER.debug(f"{result}")
+                except Exception:
+                    _LOGGER.debug("Error during decoding stream, no valid text recognized")
+                    
             if result and result.text:
                 await self.write_event(Transcript(text=result.text).event())
                 _LOGGER.debug(f"Final transcript on stop: {result.text}")
+            else:
+                await self.write_event(Transcript(text='').event())
+                _LOGGER.debug(f"Empty transcript result event.")
 
             return True
         return False

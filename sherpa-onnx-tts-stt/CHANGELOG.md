@@ -35,3 +35,10 @@
 
 - Experimental Support for Openai-format TTS/STT api  IP:10500/v1/audio/speech IP:10500/v1/audio/transcriptions
 - 添加Openai兼容格式 TTS/STT 实验性支持，实现了两个接口  IP:10500/v1/audio/speech IP:10500/v1/audio/transcriptions
+
+## 0.3.1
+
+- Fix void STT result bug (result in Wyoming Satellite hang).
+- 修复STT结果为空导致语音助手阻塞的bug.
+- Set debug to false by default.
+- 默认关闭debug日志减少日志输出。

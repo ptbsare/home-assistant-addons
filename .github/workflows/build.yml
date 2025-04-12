@@ -2,7 +2,7 @@ name: Builder
 
 env:
   BUILD_ARGS: "--test"
-  MONITORED_FILES: "build.yaml config.yaml Dockerfile run.py"
+
 
 on:
   workflow_dispatch:
@@ -37,7 +37,7 @@ jobs:
           declare -a changed_addons
           for addon in ${{ steps.addons.outputs.addons }}; do
             for changed_file in ${{ steps.changed_files.outputs.all }}; do
-              if [[ "${changed_file}" =~ ^${addon}/ ]]; then
+              if [[ "${changed_file}" =~ ^${addon} ]]; then
                 if [[ ! "${changed_addons[@]}" =~ "${addon}" ]]; then
                   changed_addons+=("\"${addon}\",");
                 fi
@@ -51,7 +51,7 @@ jobs:
             echo "changed=true" >> $GITHUB_OUTPUT
             echo "addons=[$changed]" >> $GITHUB_OUTPUT
           else
-            echo "No add-on had any monitored files changed (${{ env.MONITORED_FILES }})";
+            echo "No add-on changed";
           fi
   build:
     needs: init

@@ -1,9 +1,4 @@
-stt_model.tar.bz2
-tts_model.tar.bz2
 __pycache__/
 .DS_Store
-**/sherpa-onnx-streaming-paraformer-bilingual-zh-en
-**/matcha-icefall-zh-baker
 SETTINGS.md
 index.md
-*gpu/

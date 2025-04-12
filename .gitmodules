@@ -1,0 +1,3 @@
+[submodule "sherpa-onnx-tts-stt"]
+	path = sherpa-onnx-tts-stt
+	url = https://ptbsare@github.com/ptbsare/sherpa-onnx-tts-stt.git

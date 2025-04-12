@@ -131,6 +131,7 @@ jobs:
           context: ./${{ matrix.addon }}
           tags: |
             ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}/${{ matrix.arch }}-addon-${{ matrix.addon }}:${{ steps.information.outputs.version }}
+            ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}/${{ matrix.arch }}-addon-${{ matrix.addon }}:latest
           platforms: ${{ steps.flags.outputs.platform }}
           build-args: |
             BUILD_ARCH=${{ matrix.arch }}

@@ -3,14 +3,45 @@ name: Release
 on:
   push:
     branches:
-      - main # 或者您想要监听的分支
+      - main
+  workflow_dispatch:
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    outputs:
+      should_release: ${{ steps.check_version_change.outputs.should_release }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: 获取当前版本号
+        id: get_current_version
+        run: |
+          VERSION=$(yq '.version' sherpa-onnx-tts-stt/config.yaml)
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+      - name: 获取上一个 Release 版本号
+        id: get_last_release_version
+        run: |
+          LAST_VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo "0.0.0")
+          echo "LAST_VERSION=$LAST_VERSION" >> $GITHUB_OUTPUT
+      - name: 检查版本号是否变化
+        id: check_version_change
+        run: |
+          CURRENT_VERSION="${{ steps.get_current_version.outputs.VERSION }}"
+          LAST_VERSION="${{ steps.get_last_release_version.outputs.LAST_VERSION }}"
+          if [ "$CURRENT_VERSION" != "$LAST_VERSION" ]; then
+            echo "版本号已变化，需要发布 Release"
+            echo "should_release=true" >> $GITHUB_OUTPUT
+          else
+            echo "版本号未变化，无需发布 Release"
+            echo "should_release=false" >> $GITHUB_OUTPUT
+          fi
+  create_release:
+    needs: release
+    if: ${{ needs.release.outputs.should_release == 'true' }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: 读取版本号
+      - name: 读取版本号 (再次读取，确保最新)
         id: get_version
         run: |
           VERSION=$(yq '.version' sherpa-onnx-tts-stt/config.yaml)

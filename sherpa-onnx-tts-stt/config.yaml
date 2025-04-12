@@ -42,7 +42,6 @@ schema:
     custom_stt_model_eval: str?
     custom_tts_model: str? 
     custom_tts_model_eval: str?
-
 ports:
   10400/tcp: 10400
   10500/tcp: 10500

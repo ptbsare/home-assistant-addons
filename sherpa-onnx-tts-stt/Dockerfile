@@ -1,18 +1,18 @@
 ARG BUILD_FROM "python:3.11.9-slim-bullseye"
 FROM $BUILD_FROM
-ENV LANGUAGE 'zh-CN'
-ENV SPEED '1.0'
-ENV STT_MODEL 'sherpa-onnx-paraformer-zh-2023-03-28'
-ENV STT_USE_INT8_ONNX_MODEL 'True'
-ENV STT_THREAD_NUM '3'
-ENV TTS_MODEL 'matcha-icefall-zh-baker'
-ENV TTS_THREAD_NUM '3'
-ENV TTS_SPEAKER_SID '0'
-ENV DEBUG 'False'
-ENV CUSTOM_STT_MODEL 'null'
-ENV CUSTOM_STT_MODEL_EVAL 'null'
-ENV CUSTOM_TTS_MODEL 'null'
-ENV CUSTOM_TTS_MODEL_EVAL 'null'
+ENV LANGUAGE='zh-CN'
+ENV SPEED='1.0'
+ENV STT_MODEL='sherpa-onnx-paraformer-zh-2023-03-28'
+ENV STT_USE_INT8_ONNX_MODEL='True'
+ENV STT_THREAD_NUM='3'
+ENV TTS_MODEL='matcha-icefall-zh-baker'
+ENV TTS_THREAD_NUM='3'
+ENV TTS_SPEAKER_SID='0'
+ENV DEBUG='False'
+ENV CUSTOM_STT_MODEL='null'
+ENV CUSTOM_STT_MODEL_EVAL='null'
+ENV CUSTOM_TTS_MODEL='null'
+ENV CUSTOM_TTS_MODEL_EVAL='null'
 # Install Python dependencies
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \

@@ -13,6 +13,8 @@ jobs:
       should_release: ${{ steps.check_version_change.outputs.should_release }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 强制完整克隆，拉取所有历史记录和 tag
       - name: 获取当前版本号
         id: get_current_version
         run: |
@@ -40,7 +42,7 @@ jobs:
     if: ${{ needs.release.outputs.should_release == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: 读取版本号 (再次读取，确保最新)
         id: get_version
         run: |

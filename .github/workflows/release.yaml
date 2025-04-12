@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main # 或者您想要监听的分支
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: 读取版本号
+        id: get_version
+        run: |
+          VERSION=$(yq '.version' sherpa-onnx-tts-stt/config.yaml)
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+      - name: 生成 Changelog
+        id: changelog_gen
+        uses: mindsers/changelog-reader@v2
+        with:
+          version: ${{ steps.get_version.outputs.VERSION }}
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.repository }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: 更新 CHANGELOG.md
+        run: |
+          echo "${{ steps.changelog_gen.outputs.changelog }}" > temp_changelog.md
+          cat temp_changelog.md sherpa-onnx-tts-stt/CHANGELOG.md > updated_changelog.md
+          mv updated_changelog.md sherpa-onnx-tts-stt/CHANGELOG.md
+          rm temp_changelog.md
+      - name: 创建 Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.get_version.outputs.VERSION }}
+          release_name: Release v${{ steps.get_version.outputs.VERSION }}
+          body: ${{ steps.changelog_gen.outputs.changelog }}

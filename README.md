@@ -12,9 +12,9 @@ ptbsare's Add-ons for [Home Assistant](https://www.home-assistant.io).
   
   同时支持Openai TTS/STT 格式两个接口  IP:10500/v1/audio/speech IP:10500/v1/audio/transcriptions
 
-  See [DOCS.md](https://github.com/ptbsare/sherpa-onnx-tts-stt/blob/main/sherpa-onnx-tts-stt/DOCS.md) for documentation.
+  See [DOCS.md](https://github.com/ptbsare/sherpa-onnx-tts-stt/blob/main/DOCS.md) for documentation.
 
-  文档见 [DOCS.md](https://github.com/ptbsare/sherpa-onnx-tts-stt/blob/main/sherpa-onnx-tts-stt/DOCS.md)
+  文档见 [DOCS.md](https://github.com/ptbsare/sherpa-onnx-tts-stt/blob/main/DOCS.md)
 
 [![Show add-on](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=adfd7a46_sherpa_onnx_tts_stt&repository_url=https%3A%2F%2Fgithub.com%2Fptbsare%2Fhome-assistant-addons)
 

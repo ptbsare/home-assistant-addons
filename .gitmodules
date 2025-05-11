@@ -1,3 +1,6 @@
 [submodule "sherpa-onnx-tts-stt"]
 	path = sherpa-onnx-tts-stt
 	url = https://ptbsare@github.com/ptbsare/sherpa-onnx-tts-stt.git
+[submodule "mcp-proxy-server"]
+	path = mcp-proxy-server
+	url = https://github.com/ptbsare/mcp-proxy-server.git

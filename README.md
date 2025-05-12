@@ -19,7 +19,7 @@ ptbsare's Add-ons for [Home Assistant](https://www.home-assistant.io).
 [![Show add-on](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=adfd7a46_sherpa_onnx_tts_stt&repository_url=https%3A%2F%2Fgithub.com%2Fptbsare%2Fhome-assistant-addons)
 
   ([Sherpa Onnx Github Page](https://github.com/k2-fsa/sherpa-onnx))
----
+
 
 # MCP Proxy Server
 

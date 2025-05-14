@@ -2,3 +2,5 @@ __pycache__/
 .DS_Store
 SETTINGS.md
 index.md
+mcp-proxy
+typescript-sdk
